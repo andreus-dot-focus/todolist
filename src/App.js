@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import React from 'react';
+import {CurrentList} from './components/CurrentList';
+import {Add} from './components/Add';
+class App extends React.Component {
+  state={
+    list:null,
+  }
+  componentDidMount() {
+    this.setState({isLoading:true})
+     fetch('http://localhost:3000/data/toDoData.json')
+       .then(response => {
+         return response.json()
+       })
+       .then(data => {
+        this.setState({list:data})
+       })
+   }
+  handleAddNews = data => {
+    const newList = [data, ...this.state.list];
+    this.setState({ list: newList });
+  };
+  render(){
+    return(
+      <React.Fragment>
+        <header>Список дел</header>
+        <div className="container">
+        <Add onAddNews={this.handleAddNews} />
+        <CurrentList data={this.state.list} />
+        </div>
+      </React.Fragment>
+    )
+  }
 }
 
 export default App;
