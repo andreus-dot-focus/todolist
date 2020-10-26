@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../styles/Add.css'
 
 class Add extends React.Component{
     state={
@@ -10,11 +11,13 @@ class Add extends React.Component{
     onBtnClickHandler = e => {
         e.preventDefault();
         const { text, isImportant } = this.state;
+        let now = new Date();
+        let timeString = `${now.getDate()}.${now.getMonth()+1}.${now.getFullYear()} ${now.getHours()}:${now.getMinutes()}`
         this.props.onAddItem({
           id: +new Date(),
-          time: +new Date(),
-          text,
-          isImportant,
+          time: timeString,
+          text:text,
+          isImportant:isImportant,
         });
       };
 
@@ -24,7 +27,7 @@ class Add extends React.Component{
     }
 
     handleChangeCheckbox=e=>{
-        this.setState({agree:e.currentTarget.checked})
+        this.setState({isImportant:e.currentTarget.checked})
     }
     validate = () => {
         const { text } = this.state;
@@ -36,26 +39,25 @@ class Add extends React.Component{
     render(){
         const {text,isImportant} = this.state
         return(
-        <div class="row">
-            <div class="col-6">
-                <input placeholder="Введите Дело" id="text" type="text" name="" value={text} onChange={this.handleChange}/>
+        <div className="addBlock fixed-bottom">
+            <input placeholder="Введите Дело" id="text" type="text" name="" value={text} onChange={this.handleChange}/>
+            <div className="form-check">
+                <input className="form-check-input" type="checkbox" id="isImportant" value={isImportant}  onChange={this.handleChangeCheckbox}/>
+                <label htmlFor="isImportant" className="form-check-label">Срочное</label>
             </div>
-        <div class="col-3">
-            <div class="form-check">
-                <input type="checkbox" id="isImportant" value={isImportant} class="form-input-check" onChange={this.handleChangeCheckbox}/>
-                <label class="form-input-label">Срочное</label>
-            </div>
-        </div>
-            <div class="col-3">
-                <button type="button" name="button" onClick={this.onBtnClickHandler}>Добавить дело</button>
-            </div>
+                <button
+                className="add__button" 
+                type="button" 
+                name="button" 
+                onClick={this.onBtnClickHandler}
+                disabled={!this.validate()}>Добавить дело</button>
         </div>
         )
     }
 }
 
 Add.propTypes = {
-    onAddNews: PropTypes.func.isRequired
+    onAddItem: PropTypes.func.isRequired
   };
 
 export {Add}
