@@ -4,14 +4,19 @@ import PropTypes from 'prop-types'
 
 
 class CurrentList extends React.Component{
+    handleDeleteItems = data =>{
+      console.log(data);
+    };
+
     renderList = () => {
         const { data } = this.props;
         let list = null;
     
-        if (data.length) {
+        if (data?.length) {
           list = data.map(function (item) {
             return <ListItem key={item.id} data={item} />;
           });
+          
         } else {
           list = <p className="text-secondary">Нет дел</p>;
         }
@@ -27,6 +32,6 @@ class CurrentList extends React.Component{
 }
 
 CurrentList.propTypes = {
-    data: PropTypes.array.isRequired,
+    data: PropTypes.array,
 }
 export {CurrentList};

@@ -15,17 +15,19 @@ class App extends React.Component {
         this.setState({list:data})
        })
    }
-  handleAddNews = data => {
+  handleAddItems = data => {
     const newList = [data, ...this.state.list];
     this.setState({ list: newList });
   };
+
+
   render(){
     return(
       <React.Fragment>
         <header>Список дел</header>
         <div className="container">
-        <Add onAddNews={this.handleAddNews} />
-        <CurrentList data={this.state.list} />
+        <CurrentList data={this.state.list}/>
+        <Add onAddItem={this.handleAddItems} />
         </div>
       </React.Fragment>
     )
