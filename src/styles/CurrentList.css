@@ -1,0 +1,6 @@
+.current-list{
+    height:100%;
+    width:80%;
+    position: relative;
+    border-left: 1px solid black;
+}

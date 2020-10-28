@@ -1,0 +1,10 @@
+.filter{
+    width:100%;
+    padding:10px 0;
+}
+
+.filter__block{
+    width:70%;
+    border:1px solid black;
+    margin: 0 auto;
+}

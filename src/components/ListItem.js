@@ -56,7 +56,6 @@ class ListItem extends React.Component{
 }
 
 ListItem.propTypes = {
-  onDeleteItem: PropTypes.func.isRequired,
   data: PropTypes.shape({
     id: PropTypes.number.isRequired,
     text: PropTypes.string.isRequired,

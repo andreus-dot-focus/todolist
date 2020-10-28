@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../styles/Add.css'
 
-class Add extends React.Component{
+class AddItem extends React.Component{
     state={
         text:'',
         isImportant:false,
@@ -39,7 +39,7 @@ class Add extends React.Component{
     render(){
         const {text,isImportant} = this.state
         return(
-        <div className="addBlock fixed-bottom">
+        <div className="addBlock">
             <input placeholder="Введите Дело" id="text" type="text" name="" value={text} onChange={this.handleChange}/>
             <div className="form-check">
                 <input className="form-check-input" type="checkbox" id="isImportant" value={isImportant}  onChange={this.handleChangeCheckbox}/>
@@ -56,8 +56,8 @@ class Add extends React.Component{
     }
 }
 
-Add.propTypes = {
+AddItem.propTypes = {
     onAddItem: PropTypes.func.isRequired
   };
 
-export {Add}
+export {AddItem}

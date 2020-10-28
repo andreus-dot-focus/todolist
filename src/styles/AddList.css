@@ -1,0 +1,11 @@
+.addList{
+    flex-direction: column;
+}
+.addList button{
+    margin: 10px 0;
+}
+
+.addList #text{
+    margin: 10px 0;
+    width: 80%;
+}

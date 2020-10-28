@@ -11,6 +11,8 @@
     width:100%;
     padding: 30px 0;
     border-top: 1px black solid;
+    position: absolute;
+    bottom: 0;
 }
 
 .add__button{

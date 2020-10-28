@@ -1,37 +1,37 @@
-import React from 'react'
-import { ListItem } from './ListItem';
-import PropTypes from 'prop-types'
-
+import React from 'react';
+import {List} from './List';
+import {AddItem} from './AddItem';
+import '../styles/CurrentList.css'
 
 class CurrentList extends React.Component{
-    handleDeleteItems = data =>{
-      console.log(data);
-    };
-
-    renderList = () => {
-        const { data } = this.props;
-        let list = null;
-    
-        if (data?.length) {
-          list = data.map(function (item) {
-            return <ListItem key={item.id} data={item} />;
-          });
-          
-        } else {
-          list = <p className="text-secondary">Нет дел</p>;
-        }
-        return list;
+    state={
+        list:null,
+      } 
+      handleAddItems = data => {
+        const newList = [data, ...this.state.list];
+        this.setState({list:newList});
       };
+      componentDidMount() {
+        this.setState({isLoading:true})
+         fetch('http://localhost:3000/data/toDoData.json')
+           .then(response => {
+             return response.json()
+           })
+           .then(data => {
+            this.setState({list:data})
+           })
+       }
     render(){
         return(
-            <React.Fragment>
-                {this.renderList()}
-            </React.Fragment>
+            <div className="current-list">
+                <header>Список дел</header>
+                <div className="container">
+                    <List data={this.state.list}/>
+                    <AddItem onAddItem={this.handleAddItems} />
+                </div>
+            </div>
         )
     }
 }
 
-CurrentList.propTypes = {
-    data: PropTypes.array,
-}
 export {CurrentList};
