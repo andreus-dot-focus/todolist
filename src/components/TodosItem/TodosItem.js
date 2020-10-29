@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 class TodosItem extends React.Component{
     render(){
-        const {text} = this.props.data;
+        const {text} = this.props;
         return(
             <div className="todos-item">
                 <p>{text}</p>
@@ -14,11 +14,8 @@ class TodosItem extends React.Component{
 }
 
 TodosItem.propTypes = {
-    data: PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        text: PropTypes.string.isRequired,
-        isDone: PropTypes.bool.isRequired,
-      })
+    listId: PropTypes.number.isRequired,
+    text: PropTypes.string.isRequired,      
 }
 
 

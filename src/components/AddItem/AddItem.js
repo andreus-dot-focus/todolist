@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../styles/Add.css'
+import './Add.css'
 
 class AddItem extends React.Component{
     state={

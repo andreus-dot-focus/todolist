@@ -1,7 +1,15 @@
+import { GET_TODOS } from "../actions/TodosActions";
+
 export const initialState = {
-    todos:[]
+    todos:[],
+    isFetching:false,
 }
 
 export function todosReducer(state = initialState, action){
-    return state
+    switch (action.type) {
+        case GET_TODOS:
+            return{...state, todos:action.payload}
+        default:
+            return state       
+    }
 }

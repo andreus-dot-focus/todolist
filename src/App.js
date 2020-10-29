@@ -1,21 +1,29 @@
 import React from 'react';
 import {connect} from 'react-redux'
-import {CurrentList} from './components/CurrentList';
-import {Todos} from './components/Todos';
-import './styles/App.css'
+import {Todos} from './components/Todos/Todos';
+import './App.css'
+import { getTodos } from './actions/TodosActions';
 class App extends React.Component {
   render(){
+    const {todos, getTodosAction} = this.props
     return(
         <div className="app container">
-          <Todos></Todos>
-          <CurrentList></CurrentList>
+          <Todos todos={todos} getTodos={getTodosAction}></Todos>
+          {/* <CurrentList currentList={currentList}></CurrentList> */}
         </div>
     )
   }
 }
 
-const mapStateToProps = store => {
-  console.log(store)
-}
-export default connect(mapStateToProps)(App)
+const mapStateToProps = store => ({
+  todos: store.todos,
+  currentList: store.currentList,
+})
+
+const mapDispatchToProps = dispatch => ({
+  getTodosAction: ()=>dispatch(getTodos())
+})
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
 

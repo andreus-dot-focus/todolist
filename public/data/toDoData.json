@@ -1,28 +1,29 @@
 [
-    "todos":[
-        {
-            "listId":1,
-            "name":"Список дел на вечер",
-            "list":[
+    {
+        "listId":1,
+        "name":"Список дел на вечер",
+        "list":[
                 {
                     "id":1,
                     "time":"26.10.2020 15:34",
                     "text":"Выгулять собаку",
-                    "isImportant":false
+                    "isImportant":false,
+                    "isDone":false
                 },
                 {
                     "id":2,
                     "time":"26.10.2020 15:34",
                     "text":"Купить молоко",
-                    "isImportant":true
+                    "isImportant":true,
+                    "isDone":false
                 },
                 {
                     "id":3,
                     "time":"26.10.2020 15:34",
                     "text":"Начистить ботинки",
-                    "isImportant":false
+                    "isImportant":false,
+                    "isDone":false
                 }
             ]
-        }
-    ]
+    }
 ]

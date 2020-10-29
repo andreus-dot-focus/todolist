@@ -1,14 +1,14 @@
 import React from 'react'
-import {TodosItem} from './TodosItem'
+import {TodosItem} from '../TodosItem/TodosItem'
 
 class TodosLists extends React.Component{
     renderList = () => {
-        const { data } = this.props;
+        const { todos } = this.props.data;
         let list = null;
     
-        if (data?.length) {
-          list = data.map(function (item) {
-            return <TodosItem key={item.id} data={item} />;
+        if (todos?.length) {
+          list = todos.map(function (item) {
+            return <TodosItem key={item.listId} text={item.name} listId={item.listId}/>;
           });
           
         } else {

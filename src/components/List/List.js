@@ -1,5 +1,5 @@
 import React from 'react'
-import { ListItem } from './ListItem';
+import { ListItem } from '../ListItem/ListItem';
 import PropTypes from 'prop-types';
 
 class List extends React.Component{

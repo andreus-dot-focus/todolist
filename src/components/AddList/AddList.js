@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/AddList.css'
+import './AddList.css'
 
 class AddList extends React.Component{
     render(){
