@@ -1,7 +1,12 @@
 .todos-item{
     padding: 10px 0;
+    text-align: center;
 }
 
-.todos-item p{
-    margin:0 auto;
+.todos-item button{
+    background-color: aliceblue;
+    display: block;
+    width:100%;
+    text-align: center;
+    margin: 0 auto;
 }

@@ -25,5 +25,25 @@
                     "isDone":false
                 }
             ]
+    },
+    {
+        "listId":2,
+        "name":"Список дел на утро",
+        "list":[
+                {
+                    "id":1,
+                    "time":"26.10.2020 15:34",
+                    "text":"Помыть кота",
+                    "isImportant":false,
+                    "isDone":false
+                },
+                {
+                    "id":2,
+                    "time":"26.10.2020 15:34",
+                    "text":"Съесть бутер",
+                    "isImportant":true,
+                    "isDone":false
+                }
+            ]
     }
 ]

@@ -18,6 +18,7 @@ class AddItem extends React.Component{
           time: timeString,
           text:text,
           isImportant:isImportant,
+          isDone:false,
         });
       };
 
